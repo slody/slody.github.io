@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言抛弃付费空间和域名转到免费代码托管空间 (白嫖)环境：Windows 10 64-bit 教育版 v1803">
+<meta name="keywords" content="Hexo,安装,部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo安装部署小记">
+<meta property="og:url" content="https://lody.xyz/2019/01/15/Hexo安装部署小记/index.html">
+<meta property="og:site_name" content="Hentai!">
+<meta property="og:description" content="前言抛弃付费空间和域名转到免费代码托管空间 (白嫖)环境：Windows 10 64-bit 教育版 v1803">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://b-1258498546.cos.ap-chengdu.myqcloud.com/71229932small.png">
+<meta property="og:updated_time" content="2019-01-16T11:57:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo安装部署小记">
+<meta name="twitter:description" content="前言抛弃付费空间和域名转到免费代码托管空间 (白嫖)环境：Windows 10 64-bit 教育版 v1803">
+<meta name="twitter:image" content="https://b-1258498546.cos.ap-chengdu.myqcloud.com/71229932small.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://lody.xyz/2019/01/15/Hexo安装部署小记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo安装部署小记 | Hentai!</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hentai!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Lolicon</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lody.xyz/2019/01/15/Hexo安装部署小记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lody">
+      <meta itemprop="description" content="23333">
+      <meta itemprop="image" content="https://b-1258498546.cos.ap-chengdu.myqcloud.com/Picbedavatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hentai!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo安装部署小记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-15 20:20:36" itemprop="dateCreated datePublished" datetime="2019-01-15T20:20:36+08:00">2019-01-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://b-1258498546.cos.ap-chengdu.myqcloud.com/71229932small.png" alt></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>抛弃付费空间和域名转到免费代码托管空间 (<del>白嫖</del>)<br>环境：<code>Windows 10 64-bit</code> 教育版 <code>v1803</code></p>
+<a id="more"></a>
+<h1 id="安装Node-js和Git"><a href="#安装Node-js和Git" class="headerlink" title="安装Node.js和Git"></a>安装Node.js和Git</h1><h2 id="Node-js下载安装"><a href="#Node-js下载安装" class="headerlink" title="Node.js下载安装"></a>Node.js下载安装</h2><p>官网下载：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">打开下载地址</a></p>
+<blockquote>
+<p>(LTS) 长期支持版 推荐多数用户使用<br>(Current) 当前发布版 含最新功能</p>
+</blockquote>
+<p>安装LTS window 64-bit版本就可以了</p>
+<h2 id="Git下载安装"><a href="#Git下载安装" class="headerlink" title="Git下载安装"></a>Git下载安装</h2><p>官网下载：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">打开下载地址</a></p>
+<p>同样安装windows版本即可</p>
+<h1 id="建立Github项目"><a href="#建立Github项目" class="headerlink" title="建立Github项目"></a>建立Github项目</h1><h2 id="注册帐号"><a href="#注册帐号" class="headerlink" title="注册帐号"></a>注册帐号</h2><p><a href="https://github.com" target="_blank" rel="noopener">https://github.com</a></p>
+<h2 id="新建项目-repository"><a href="#新建项目-repository" class="headerlink" title="新建项目(repository)"></a>新建项目(repository)</h2><ul>
+<li>repository name：<code>用户名.github.io</code></li>
+<li>默认勾选公有项目：<code>Public</code></li>
+<li>勾选下方初始化 with Readme</li>
+</ul>
+<blockquote>
+<p> mmp 因为私有项目无法启用Gitpage</p>
+</blockquote>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><h2 id="创建安装位置"><a href="#创建安装位置" class="headerlink" title="创建安装位置"></a>创建安装位置</h2><p>例如放在D盘:在D盘新建文件夹取名<code>Hexo</code></p>
+<blockquote>
+<p>这个安装位置就是本地Hexo目录 这里就是D:\Hexo</p>
+</blockquote>
+<h2 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ol>
+<li>进入Hexo文件夹 右键Git Bash Here进入git终端</li>
+<li>输入npm install hexo -g，开始安装Hexo</li>
+<li>输入hexo -v，检查hexo是否安装成功</li>
+<li>输入hexo init，初始化该文件夹</li>
+<li>输入npm install，安装所需要的组件</li>
+<li>输入hexo g，首次生成Hexo</li>
+<li>输入hexo s，开启服务器，默认是:<code>http://localhost:4000</code> 访问该网址，正式体验Hexo</li>
+</ol>
+<h1 id="本地Hexo部署到Github"><a href="#本地Hexo部署到Github" class="headerlink" title="本地Hexo部署到Github"></a>本地Hexo部署到Github</h1><h2 id="首次使用需要设置Git的user-name和email"><a href="#首次使用需要设置Git的user-name和email" class="headerlink" title="首次使用需要设置Git的user name和email"></a>首次使用需要设置Git的user name和email</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;填用户名&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;填邮箱&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h2><p>参考官方说明：<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a></p>
+<p>Open Git Bash.</p>
+<p>Paste the text below, substituting in your GitHub email address.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>This creates a new ssh key, using the provided email as a label.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.</span><br></pre></td></tr></table></figure></p>
+<p>When you’re prompted to “Enter a file in which to save the key,” press Enter. This accepts the default file location.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span><br></pre></td></tr></table></figure></p>
+<p>At the prompt, type a secure passphrase. For more information, see “Working with SSH key passphrases”.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入eval &quot;$(ssh-agent -s)&quot;，添加密钥到ssh-agent</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent</span><br></pre></td></tr></table></figure>
+<h2 id="Github添加ssh"><a href="#Github添加ssh" class="headerlink" title="Github添加ssh"></a>Github添加ssh</h2><ol>
+<li>登录Github，点击头像下的settings，添加ssh</li>
+<li>新建一个new ssh key，将<code>id_rsa.pub</code>(在用户文件夹的<code>.ssh文件夹</code>)文件里的内容复制上去</li>
+<li>输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</li>
+</ol>
+<blockquote>
+<p>问题：假如ssh-key配置失败，那么只要以下步骤就能完全解决</p>
+</blockquote>
+<p>首先，清除所有的key-pair<br>ssh-add -D<br>rm -r ~/.ssh<br>删除你在github中的public-key</p>
+<p>重新生成ssh密钥对<br>ssh-keygen -t rsa -C “<a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a>“</p>
+<p>接下来正常操作<br>在github上添加公钥public-key:<br>1、首先在你的终端运行 xclip -sel c ~/.ssh/id_rsa.pub将公钥内容复制到剪切板<br>2、在github上添加公钥时，直接复制即可<br>3、保存</p>
+<p>测试：<br>在终端 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+<h2 id="编辑Hexo站点配置"><a href="#编辑Hexo站点配置" class="headerlink" title="编辑Hexo站点配置"></a>编辑Hexo站点配置</h2><p>配置Deployment，在其文件夹中，找到<code>_config.yml</code>文件，修改repo值（在末尾）</p>
+<p>repo值是你在github项目里的ssh（右下角）</p>
+<h2 id="安装部署扩展"><a href="#安装部署扩展" class="headerlink" title="安装部署扩展"></a>安装部署扩展</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="写一篇文章并部署"><a href="#写一篇文章并部署" class="headerlink" title="写一篇文章并部署"></a>写一篇文章并部署</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;你好&quot;</span><br></pre></td></tr></table></figure>
+<p>生成的md在<code>source\_posts</code>文件夹<br>写完毕就可以部署了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>由于没设密码第一次会提示 直接yes一路回车.</p>
+<blockquote>
+<p>以上<br>小记小记…摸鱼一笔带过qwq</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>给作者打赏(｡･ω･｡)</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Lody</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://lody.xyz/2019/01/15/Hexo安装部署小记/" title="Hexo安装部署小记">https://lody.xyz/2019/01/15/Hexo安装部署小记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/安装/" rel="tag"># 安装</a>
+          
+            <a href="/tags/部署/" rel="tag"># 部署</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/14/关于GULP命令出错的相关问题/" rel="next" title="关于GULP命令出错的相关问题">
+                <i class="fa fa-chevron-left"></i> 关于GULP命令出错的相关问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/21/OneDrive外链测试/" rel="prev" title="OneDrive外链测试">
+                OneDrive外链测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://b-1258498546.cos.ap-chengdu.myqcloud.com/Picbedavatar.gif" alt="Lody">
+            
+              <p class="site-author-name" itemprop="name">Lody</p>
+              <div class="site-description motion-element" itemprop="description">23333</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com/yourname" title="Google &rarr; https://plus.google.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/yourname" title="Twitter &rarr; https://twitter.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.52pojie.cn" title="https://www.52pojie.cn" rel="noopener" target="_blank">吾爱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.newxitong.com" title="http://www.newxitong.com" rel="noopener" target="_blank">吻妻</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://isujin.com" title="https://isujin.com" rel="noopener" target="_blank">素锦</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.haomwei.com" title="https://www.haomwei.com" rel="noopener" target="_blank">屠城</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Node-js和Git"><span class="nav-number">2.</span> <span class="nav-text">安装Node.js和Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js下载安装"><span class="nav-number">2.1.</span> <span class="nav-text">Node.js下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git下载安装"><span class="nav-number">2.2.</span> <span class="nav-text">Git下载安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立Github项目"><span class="nav-number">3.</span> <span class="nav-text">建立Github项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册帐号"><span class="nav-number">3.1.</span> <span class="nav-text">注册帐号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建项目-repository"><span class="nav-number">3.2.</span> <span class="nav-text">新建项目(repository)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建安装位置"><span class="nav-number">4.1.</span> <span class="nav-text">创建安装位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo-1"><span class="nav-number">4.2.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本地Hexo部署到Github"><span class="nav-number">5.</span> <span class="nav-text">本地Hexo部署到Github</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首次使用需要设置Git的user-name和email"><span class="nav-number">5.1.</span> <span class="nav-text">首次使用需要设置Git的user name和email</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成SSH密钥"><span class="nav-number">5.2.</span> <span class="nav-text">生成SSH密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github添加ssh"><span class="nav-number">5.3.</span> <span class="nav-text">Github添加ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑Hexo站点配置"><span class="nav-number">5.4.</span> <span class="nav-text">编辑Hexo站点配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装部署扩展"><span class="nav-number">5.5.</span> <span class="nav-text">安装部署扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写一篇文章并部署"><span class="nav-number">5.6.</span> <span class="nav-text">写一篇文章并部署</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lody</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">26k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">24 分钟</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

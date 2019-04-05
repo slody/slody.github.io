@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="pacman的几个常用命令：pacman -S package_name #安装软件包pacman -R package_name #删除软件包 pacman -Rs package_name #顺便删除软件包相关依赖pacman -Syu #升级系统中的所有包pacman -Ss package #查询软件包pacman -Qs package #查询已安装的包pacman -Qi packag">
+<meta name="keywords" content="ceshi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arch-Install-KDE">
+<meta property="og:url" content="https://lody.xyz/2019/02/14/Arch-Install-KDE/index.html">
+<meta property="og:site_name" content="Hentai!">
+<meta property="og:description" content="pacman的几个常用命令：pacman -S package_name #安装软件包pacman -R package_name #删除软件包 pacman -Rs package_name #顺便删除软件包相关依赖pacman -Syu #升级系统中的所有包pacman -Ss package #查询软件包pacman -Qs package #查询已安装的包pacman -Qi packag">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-18T08:59:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Arch-Install-KDE">
+<meta name="twitter:description" content="pacman的几个常用命令：pacman -S package_name #安装软件包pacman -R package_name #删除软件包 pacman -Rs package_name #顺便删除软件包相关依赖pacman -Syu #升级系统中的所有包pacman -Ss package #查询软件包pacman -Qs package #查询已安装的包pacman -Qi packag">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://lody.xyz/2019/02/14/Arch-Install-KDE/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Arch-Install-KDE | Hentai!</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hentai!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Lolicon</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lody.xyz/2019/02/14/Arch-Install-KDE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lody">
+      <meta itemprop="description" content="23333">
+      <meta itemprop="image" content="https://b-1258498546.cos.ap-chengdu.myqcloud.com/Picbedavatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hentai!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Arch-Install-KDE
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-14 17:39:45" itemprop="dateCreated datePublished" datetime="2019-02-14T17:39:45+08:00">2019-02-14</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ceshi/" itemprop="url" rel="index"><span itemprop="name">ceshi</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="pacman的几个常用命令："><a href="#pacman的几个常用命令：" class="headerlink" title="pacman的几个常用命令："></a>pacman的几个常用命令：</h1><p>pacman -S package_name #安装软件包<br>pacman -R package_name #删除软件包</p>
+<p>pacman -Rs package_name #顺便删除软件包相关依赖<br>pacman -Syu #升级系统中的所有包<br>pacman -Ss package #查询软件包<br>pacman -Qs package #查询已安装的包<br>pacman -Qi package #显示查找的包的信息<br>pacman -Ql package #显示你要找的包的文件都安装的位置<br>pacman -Sw package #下载但不安装包<br>pacman -U /path/package.pkg.tar.gz #安装本地包<br>pacman -Scc #清理包缓存，下载的包会在/var/cache 这个目录<br>pacman -Sf pacman #重新安装包<br><a id="more"></a></p>
+<h1 id="root用户登录"><a href="#root用户登录" class="headerlink" title="root用户登录"></a>root用户登录</h1><h1 id="添加archlinuxcn源"><a href="#添加archlinuxcn源" class="headerlink" title="添加archlinuxcn源"></a>添加archlinuxcn源</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.conf</span><br><span class="line"></span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br><span class="line"></span><br><span class="line">顺手开启32位库-取消注释[multilib]源</span><br></pre></td></tr></table></figure>
+<p>更新软件包缓存<code>sudo pacman -Syy</code></p>
+<h1 id="安装archlinuxcn密钥"><a href="#安装archlinuxcn密钥" class="headerlink" title="安装archlinuxcn密钥"></a>安装archlinuxcn密钥</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+<h1 id="安装X服务"><a href="#安装X服务" class="headerlink" title="安装X服务"></a>安装X服务</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xorg xorg-xrandr</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>xorg-xrandr 是Nvidia闭源驱动需要</p>
+</blockquote>
+<h1 id="安装笔记本触摸板驱动"><a href="#安装笔记本触摸板驱动" class="headerlink" title="安装笔记本触摸板驱动"></a>安装笔记本触摸板驱动</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xf86-input-synaptics</span><br></pre></td></tr></table></figure>
+<h1 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S wqy-microhei wqy-bitmapfont ttf-dejavu ttf-monaco ttf-liberation noto-fonts-cjk</span><br></pre></td></tr></table></figure>
+<h1 id="安装KDE桌面"><a href="#安装KDE桌面" class="headerlink" title="安装KDE桌面"></a>安装KDE桌面</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma kde-applications</span><br></pre></td></tr></table></figure>
+<h2 id="精简版（已失效）"><a href="#精简版（已失效）" class="headerlink" title="精简版（已失效）"></a>精简版（已失效）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma dolphin kate kdialog konsole kfind dragon ffmpegthumbs kde-meta-kdeadmin kde-meta-kdeutils kde-meta-kdegraphics gwenview</span><br></pre></td></tr></table></figure>
+<h1 id="安装登陆管理器SDDM"><a href="#安装登陆管理器SDDM" class="headerlink" title="安装登陆管理器SDDM"></a>安装登陆管理器SDDM</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S sddm sddm-kcm</span><br><span class="line">systemctl enable sddm</span><br></pre></td></tr></table></figure>
+<p>简单配置sddm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example</span><br></pre></td></tr></table></figure></p>
+<h1 id="网络管理工具"><a href="#网络管理工具" class="headerlink" title="网络管理工具"></a>网络管理工具</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S net-tools</span><br><span class="line">systemctl enable NetworkManager</span><br></pre></td></tr></table></figure>
+<h1 id="安装声音包"><a href="#安装声音包" class="headerlink" title="安装声音包"></a>安装声音包</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S alsa-utils pulseaudio pulseaudio-alsa</span><br></pre></td></tr></table></figure>
+<h1 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S fcitx fcitx-im fcitx-sogoupinyin kcm-fcitx</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /home/lody/.xprofile</span><br><span class="line">export LANG=zh_CN.UTF-8</span><br><span class="line">export LC_ALL=zh_CN.UTF-8</span><br><span class="line">export GTK_IM_MODULE=&quot;fcitx&quot;</span><br><span class="line">export QT_IM_MODULE=&quot;fcitx&quot;</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h1><h2 id="核显"><a href="#核显" class="headerlink" title="核显"></a>核显</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xf86-video-intel</span><br></pre></td></tr></table></figure>
+<h2 id="nvidia闭源驱动"><a href="#nvidia闭源驱动" class="headerlink" title="nvidia闭源驱动"></a>nvidia闭源驱动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S nvidia</span><br></pre></td></tr></table></figure>
+<h3 id="nvidia配置"><a href="#nvidia配置" class="headerlink" title="nvidia配置"></a>nvidia配置</h3><p>查看显卡pci地址：<br>lspci | grep -E “VGA|3D”</p>
+<blockquote>
+<p>例如3D   01:00.0 写成 1:0:0</p>
+</blockquote>
+<p>编辑xorg.conf文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/X11/xorg.conf</span><br><span class="line"></span><br><span class="line">Section &quot;Module&quot;</span><br><span class="line">    Load &quot;modesetting&quot;</span><br><span class="line">EndSection</span><br><span class="line"></span><br><span class="line">Section &quot;Device&quot;</span><br><span class="line">    Identifier &quot;nvidia&quot;</span><br><span class="line">    Driver &quot;nvidia&quot;</span><br><span class="line">    BusID &quot;1:0:0&quot;</span><br><span class="line">    Option &quot;AllowEmptyInitialConfiguration&quot;</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure></p>
+<p>编辑启动管理器sddm脚本：</p>
+<p>vim /usr/share/sddm/scripts/Xsetup</p>
+<p>加入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xrandr --setprovideroutputsource modesetting NVIDIA-0</span><br><span class="line">xrandr --auto</span><br></pre></td></tr></table></figure></p>
+<h2 id="设置pacman彩色输出"><a href="#设置pacman彩色输出" class="headerlink" title="设置pacman彩色输出"></a>设置pacman彩色输出</h2><p>打开/etc/pacman.conf文件，找到被注释的#Color，改为Color。pacman就会输出彩色信息，方便查看</p>
+<h2 id="首次用户目录生成"><a href="#首次用户目录生成" class="headerlink" title="首次用户目录生成"></a>首次用户目录生成</h2><p>安装 xdg-user-dirs</p>
+<p>pacman -S xdg-user-dirs<br>执行命令</p>
+<p>xdg-user-dirs-update<br>若不慎删除了某个默认用户文件夹，使用如下命令强制重新生成家目录文件夹</p>
+<p>xdg-user-dirs-update –force</p>
+<p>该命令只对当前用户起作用</p>
+<h2 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h2><p>ksystemlog //查看日志</p>
+<p>ark    //压缩文件管理</p>
+<p>kget //文件下载</p>
+<p>kcalc //计算器</p>
+<p>kcolorchooser //取色配色工具</p>
+<p>print-manager //打印机管理</p>
+<p>spectacle    // 截屏工具</p>
+<h2 id="GRUB2主题"><a href="#GRUB2主题" class="headerlink" title="GRUB2主题"></a>GRUB2主题</h2><p>yay -S grub2-theme-vimix-git</p>
+<p>sudo vim /etc/default/grub</p>
+<p>GRUB_THEME=”/boot/grub/themes/Vimix/theme.txt”</p>
+<p>grub-mkconfig -o /boot/grub/grub.cfg</p>
+<h3 id="备注-主题修改"><a href="#备注-主题修改" class="headerlink" title="备注-主题修改:"></a>备注-主题修改:</h3><p>更改/etc/default/grub<br>sudo vim /etc/default/grub<br>在文件中添加</p>
+<p>GRUB_THEME=”具体主题路径/theme.txt”<br>必须注释掉GRUB_TERMINAL_OUTPUT=”console”<br>保存更改。</p>
+<p>背景修改：<br>vim /boot/grub/themes/Vimix/theme.txt</p>
+<p>desktop-image: “your_picture.jpeg”</p>
+<h2 id="图形化包管理工具"><a href="#图形化包管理工具" class="headerlink" title="图形化包管理工具"></a>图形化包管理工具</h2><p>pacman -S pamac-aur</p>
+<h2 id="调整-sddm-的-DPI"><a href="#调整-sddm-的-DPI" class="headerlink" title="调整 sddm 的 DPI"></a>调整 sddm 的 DPI</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sddm.conf</span><br><span class="line"># find</span><br><span class="line">#</span><br><span class="line"># [X11]</span><br><span class="line"># ServerArguments=-nolisten tcp</span><br><span class="line">#</span><br><span class="line"># add arugment &quot;-dpi 210&quot;</span><br><span class="line"># ServerArguments=-nolisten tcp -dpi 210</span><br></pre></td></tr></table></figure>
+<h2 id="在-sddm-中启用-“触控板轻触点击”"><a href="#在-sddm-中启用-“触控板轻触点击”" class="headerlink" title="在 sddm 中启用 “触控板轻触点击”"></a>在 sddm 中启用 “触控板轻触点击”</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/X11/xorg.conf.d/20-touchpad.conf</span><br><span class="line"># add</span><br><span class="line">Section &quot;InputClass&quot;</span><br><span class="line">        Identifier &quot;libinput touchpad catchall&quot;</span><br><span class="line">        MatchIsTouchpad &quot;on&quot;</span><br><span class="line">        MatchDevicePath &quot;/dev/input/event*&quot;</span><br><span class="line">        Driver &quot;libinput&quot;</span><br><span class="line"></span><br><span class="line">        Option &quot;Tapping&quot; &quot;on&quot;</span><br><span class="line">        Option &quot;NaturalScrolling&quot; &quot;on&quot;</span><br><span class="line">        Option &quot;MiddleEmulation&quot; &quot;on&quot;</span><br><span class="line">        Option &quot;DisableWhileTyping&quot; &quot;on&quot;</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure>
+<h2 id="一些软件"><a href="#一些软件" class="headerlink" title="一些软件"></a>一些软件</h2><p>google-chrome    Google Chrome 浏览器    无<br>netease-cloud-music    网易云音乐    无<br>sublime-text-3-imfix    代码编辑器    无<br>shutter    强大的截图工具    无<br>electron-ssr    好用的科学上网工具    无<br>redshift    显示屏色温调节工具    f.lux<br>vlc    强大的多媒体播放工具    无<br>deadbeef    终极音频播放软件    foobar2000<br>telegram-desktop    客户端开源的加密聊天工具    无<br>liferea    RSS 阅读器    无<br>qbittorrent    好用的 BT 下载工具    无<br>calibre    电子书转换、编辑、阅读工具    无<br>gthumb    图片浏览工具，可简单编辑图片，可清除照片元数据    无<br>libreoffice-fresh    必备的办公软件    Microsoft Office<br>peek    录制 GIF 动图    无<br>gimp    强大的图片编辑工具    Adobe Photoshop<br>inkscape    强大的矢量图形编辑软件    Adobe Illustrator、CorelDraw<br>shotcut    强大的视频剪辑软件    Adobe Premiere<br>fontforge    字体设计、编辑软件    FontCreator<br>audacity    简单的音频编辑软件    GoldWave<br>kid3    音频元数据编辑软件    Mp3tag<br>aria2    强大的多线程下载工具    无<br>youtube-dl    YouTube 视频下载工具    无</p>
+<h2 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h2><p>Sublime Text<br>标题栏会显示 UNREGISTERED，菜单栏 &gt; Help &gt; Enter Licence：</p>
+<p>—– BEGIN LICENSE —–<br>sgbteam<br>Single User License<br>EA7E-1153259<br>8891CBB9 F1513E4F 1A3405C1 A865D53F<br>115F202E 7B91AB2D 0D2A40ED 352B269B<br>76E84F0B CD69BFC7 59F2DFEF E267328F<br>215652A3 E88F9D8F 4C38E3BA 5B2DAAE4<br>969624E7 DC9CD4D5 717FB40C 1B9738CF<br>20B3C4F1 E917B5B3 87C38D9C ACCE7DD8<br>5F7EF854 86B9743C FADC04AA FB0DA5C0<br>F913BE58 42FEA319 F954EFDD AE881E0B<br>—— END LICENSE ——</p>
+<h2 id="记笔记之gitnote"><a href="#记笔记之gitnote" class="headerlink" title="记笔记之gitnote"></a>记笔记之gitnote</h2><p><a href="https://gitnoteapp.com/zh/" target="_blank" rel="noopener">https://gitnoteapp.com/zh/</a></p>
+<h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><h2 id="开机自动挂载ntfs分区"><a href="#开机自动挂载ntfs分区" class="headerlink" title="开机自动挂载ntfs分区"></a>开机自动挂载ntfs分区</h2><p>sudo blkid 查看 uuid</p>
+<p>修改/etc/fstab文件</p>
+<p>sudo vim /etc/fstab</p>
+<p>添加：</p>
+<h1 id="dev-sda4"><a href="#dev-sda4" class="headerlink" title="/dev/sda4"></a>/dev/sda4</h1><p>UUID=77895461CA1505E2    /run/media/lody/软件        ntfs        defaults     0    0</p>
+<p>备注：<br>fstab是有特定格式的：挂载一个分区是一行，一行共有6个字段，每个字段用空格分割。一般第一行是根目录的挂载设置，因为根目录是要优先于所有其他的挂载点先挂载的。解释一下6个字段的含义：<br>第一个字段：是Label name或者是设备文件名，例如LABEL=/home或者/dev/hdc3<br>第二个字段：是挂载点，这个一定得是目录的，比如/home<br>第三个字段：是文件系统格式，比如ext3<br>第四个字段：是文件系统参数，一般填默认设置值default<br>第五个字段：是指定这个文件系统是否要进行dump备份，0代表不做备份，1代表要每天备份<br>第六个字段：是否开机用fsck检查文件系统，0表示不检查，如果想设置成检查，根目录是1，其他文件系统是2<br>设置完这个文件后，最好测试一下是否有错误：<br>mount -a<br>df<br>如果用df命令看到刚刚修改的那一行的分区成功挂载了，就说明没有错误了</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>给作者打赏(｡･ω･｡)</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Lody</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://lody.xyz/2019/02/14/Arch-Install-KDE/" title="Arch-Install-KDE">https://lody.xyz/2019/02/14/Arch-Install-KDE/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ceshi/" rel="tag"># ceshi</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/13/Arch-Install-Me/" rel="next" title="Arch-Insatll-Me">
+                <i class="fa fa-chevron-left"></i> Arch-Insatll-Me
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/27/VScode权限问题/" rel="prev" title="VScode权限问题">
+                VScode权限问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://b-1258498546.cos.ap-chengdu.myqcloud.com/Picbedavatar.gif" alt="Lody">
+            
+              <p class="site-author-name" itemprop="name">Lody</p>
+              <div class="site-description motion-element" itemprop="description">23333</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://plus.google.com/yourname" title="Google &rarr; https://plus.google.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/yourname" title="Twitter &rarr; https://twitter.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.52pojie.cn" title="https://www.52pojie.cn" rel="noopener" target="_blank">吾爱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.newxitong.com" title="http://www.newxitong.com" rel="noopener" target="_blank">吻妻</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://isujin.com" title="https://isujin.com" rel="noopener" target="_blank">素锦</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.haomwei.com" title="https://www.haomwei.com" rel="noopener" target="_blank">屠城</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pacman的几个常用命令："><span class="nav-number">1.</span> <span class="nav-text">pacman的几个常用命令：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#root用户登录"><span class="nav-number">2.</span> <span class="nav-text">root用户登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加archlinuxcn源"><span class="nav-number">3.</span> <span class="nav-text">添加archlinuxcn源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装archlinuxcn密钥"><span class="nav-number">4.</span> <span class="nav-text">安装archlinuxcn密钥</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装X服务"><span class="nav-number">5.</span> <span class="nav-text">安装X服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装笔记本触摸板驱动"><span class="nav-number">6.</span> <span class="nav-text">安装笔记本触摸板驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装字体"><span class="nav-number">7.</span> <span class="nav-text">安装字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装KDE桌面"><span class="nav-number">8.</span> <span class="nav-text">安装KDE桌面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#精简版（已失效）"><span class="nav-number">8.1.</span> <span class="nav-text">精简版（已失效）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装登陆管理器SDDM"><span class="nav-number">9.</span> <span class="nav-text">安装登陆管理器SDDM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络管理工具"><span class="nav-number">10.</span> <span class="nav-text">网络管理工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装声音包"><span class="nav-number">11.</span> <span class="nav-text">安装声音包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装中文输入法"><span class="nav-number">12.</span> <span class="nav-text">安装中文输入法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装显卡驱动"><span class="nav-number">13.</span> <span class="nav-text">安装显卡驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#核显"><span class="nav-number">13.1.</span> <span class="nav-text">核显</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nvidia闭源驱动"><span class="nav-number">13.2.</span> <span class="nav-text">nvidia闭源驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvidia配置"><span class="nav-number">13.2.1.</span> <span class="nav-text">nvidia配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置pacman彩色输出"><span class="nav-number">13.3.</span> <span class="nav-text">设置pacman彩色输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首次用户目录生成"><span class="nav-number">13.4.</span> <span class="nav-text">首次用户目录生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他软件"><span class="nav-number">13.5.</span> <span class="nav-text">其他软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GRUB2主题"><span class="nav-number">13.6.</span> <span class="nav-text">GRUB2主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#备注-主题修改"><span class="nav-number">13.6.1.</span> <span class="nav-text">备注-主题修改:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形化包管理工具"><span class="nav-number">13.7.</span> <span class="nav-text">图形化包管理工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调整-sddm-的-DPI"><span class="nav-number">13.8.</span> <span class="nav-text">调整 sddm 的 DPI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-sddm-中启用-“触控板轻触点击”"><span class="nav-number">13.9.</span> <span class="nav-text">在 sddm 中启用 “触控板轻触点击”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些软件"><span class="nav-number">13.10.</span> <span class="nav-text">一些软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime"><span class="nav-number">13.11.</span> <span class="nav-text">sublime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#记笔记之gitnote"><span class="nav-number">13.12.</span> <span class="nav-text">记笔记之gitnote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unzip"><span class="nav-number">13.13.</span> <span class="nav-text">unzip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开机自动挂载ntfs分区"><span class="nav-number">13.14.</span> <span class="nav-text">开机自动挂载ntfs分区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dev-sda4"><span class="nav-number">14.</span> <span class="nav-text">/dev/sda4</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lody</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">26k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">24 分钟</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
